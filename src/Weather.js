@@ -5,7 +5,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-const API_KEY = "60f2f5a42cdb41d0871131637202111";
+// const API_KEY = "60f2f5a42cdb41d0871131637202111";
 
 // function getCurrentWeather(cityName) {
 //   // const endpoint = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}&days=1`;
