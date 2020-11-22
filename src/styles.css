@@ -1,4 +1,22 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  font-size: 10px;
+}
+
+.left {
+  flex: left;
+}
+
+.font-m {
+  font-size: 30px;
+}
+
+.font-sm {
+  font-size: 20px;
+}
+
+.temp {
+  width: 100px;
+  height: 80px;
 }
