@@ -1,22 +1,59 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+  color: gray;
+  background-color: black;
+  /* text-align: center; */
   font-size: 10px;
+  padding: 10px;
+  height: 480px;
+  /* border: solid 1px red; */
 }
 
 .left {
   flex: left;
 }
 
+.font-xxl {
+  font-size: 180px;
+}
+
+.font-xl {
+  font-size: 120px;
+}
+
 .font-m {
   font-size: 30px;
 }
 
-.font-sm {
-  font-size: 20px;
+.font-s {
+  font-size: 15px;
+}
+
+.bg-lg {
+  background-color: gray;
+}
+/***********************************************/
+
+.weather {
+  width: 200px;
+  /* border: solid 1px red; */
 }
 
 .temp {
   width: 100px;
   height: 80px;
+  margin-left: 10px;
+}
+
+.subway {
+  width: 500px;
+  height: 140px;
+  margin-left: 50px;
+  padding: 10px;
+  /* border: solid 1px red; */
+}
+
+.clock {
+  /* width: 200px; */
+  /* border: solid 1px red; */
 }

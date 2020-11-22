@@ -50,14 +50,18 @@ export default function Weather() {
 
   return (
     <React.Fragment>
-      <div>{weatherData.location.name}</div>
-      <div className="d-flex justify-content-center ">
-        <img src={weatherData.current.condition.icon} />
-        <div className="temp">
-          <div className="font-m">{weatherData.current.temp_c} ℃</div>
-          <div className="font-sm">
-            {weatherData.forecast.forecastday[0].day.mintemp_c}/
-            {weatherData.forecast.forecastday[0].day.maxtemp_c}
+      <div className="weather d-flex flex-column align-item-center">
+        <div className="font-m d-flex flex-row justify-content-center">
+          {weatherData.location.name}
+        </div>
+        <div className="d-flex flex-row justify-content-center">
+          <img src={weatherData.current.condition.icon} />
+          <div className="temp">
+            <div className="font-m">{weatherData.current.temp_c} ℃</div>
+            <div className="font-s">
+              {weatherData.forecast.forecastday[0].day.mintemp_c}/
+              {weatherData.forecast.forecastday[0].day.maxtemp_c}
+            </div>
           </div>
         </div>
       </div>

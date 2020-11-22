@@ -3,13 +3,15 @@ import "./styles.css";
 
 import Clock from "./Clock";
 import Weather from "./Weather";
+import Subway from "./Subway";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>
+      <div className="d-flex flex-row">
         <Weather></Weather>
-      </h1>
+        <Subway></Subway>
+      </div>
       <h1>
         <Clock></Clock>
       </h1>
