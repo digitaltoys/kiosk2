@@ -46,7 +46,7 @@ export default function Weather() {
     };
     fetchUsers();
   }, []);
-  console.log(weatherData);
+  // console.log(weatherData);
 
   return (
     <React.Fragment>

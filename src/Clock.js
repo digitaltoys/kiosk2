@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 
-export default function Clock() {
-  const [curTime, setCurTime] = useState("");
+const Clock = ({ curTime }) => {
+  // const [curTime, setCurTime] = useState("");
 
-  useEffect(() => {
-    setInterval(() => {
-      // let now = new Date();
-      // console.log(now.toTimeString());
-      setCurTime(moment().format("hh:mm:ss"));
-    }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     // let now = new Date();
+  //     // console.log(now.toTimeString());
+  //     setCurTime(moment().format("hh:mm:ss"));
+  //   }, 10000);
+  // }, []);
 
   return (
     <React.Fragment>
@@ -22,4 +22,5 @@ export default function Clock() {
       </div>
     </React.Fragment>
   );
-}
+};
+export default Clock;
