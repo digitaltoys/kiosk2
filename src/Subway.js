@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
-import line9 from "./line9";
+import { line9n, line9w } from "./line9";
 
 const Subway = ({ curTime }) => {
   // let index = 0;
   const [index, setIndex] = useState(0);
+  // let line9 = line9w;
+  let line9 = (moment().weekday() + 1) % 7 < 2 ? line9w : line9n;
+  // console.log((moment().weekday() + 1) % 7, line9w);
 
   const getRemainTime = (i) => {
     let asSec = moment
@@ -42,7 +45,10 @@ const Subway = ({ curTime }) => {
 
   return (
     <React.Fragment>
-      <div className="subway d-flex flex-column">
+      <div
+        className="subway d-flex flex-column"
+        // style={{ border: "solid 2px gray" }}
+      >
         <div className="font-s">
           <b>지하철</b>
         </div>
@@ -55,76 +61,46 @@ const Subway = ({ curTime }) => {
           style={{
             position: "relative",
             width: "100%",
-            height: "5px"
+            height: "15px",
+            overflow: "hidden"
           }}
         >
           <div
-            class="train"
+            className="train"
             style={{
               position: "absolute",
               // left: `${450-getRemainSec(index)}px`,
               right: `${getRemainSec(index)}px`,
               width: "30px",
-              height: "5px",
-              backgroundColor: "green"
+              height: "15px",
+              backgroundColor: "green",
+              borderRadius: "4px"
             }}
           ></div>
           <div
-            class="train"
+            className="train"
             style={{
               position: "absolute",
               // left: `${450-getRemainSec(index)}px`,
               right: `${getRemainSec(index + 1)}px`,
               width: "30px",
-              height: "5px",
+              height: "15px",
               backgroundColor: "green"
             }}
           ></div>
         </div>
-        <div class="progress" style={{ height: "3px" }}>
+        <div className="progress" style={{ height: "3px" }}>
           <div
-            class="progress-bar bg-lg"
+            className="progress-bar bg-lg"
             role="progressbar"
             style={{ width: "100%" }}
             aria-valuenow="30"
             aria-valuemin="0"
             aria-valuemax="100"
           ></div>
-          {/* <div
-            class="progress-bar bg-danger"
-            role="progressbar"
-            style={{ width: "10%" }}
-            aria-valuenow="20"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-          <div
-            class="progress-bar bg-lg"
-            role="progressbar"
-            style={{ width: "60%" }}
-            aria-valuenow="30"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-          <div
-            class="progress-bar bg-success"
-            role="progressbar"
-            style={{ width: "10%" }}
-            aria-valuenow="20"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-          <div
-            class="progress-bar bg-lg"
-            role="progressbar"
-            style={{ width: "0%" }}
-            aria-valuenow="0"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div> */}
         </div>
         <div
-          className="font-s d-flex flex-column align-items-end"
+          className="font-m d-flex flex-row-reverse align-items-end"
           style={{ width: "500px" }}
         >
           {index > -1 && (

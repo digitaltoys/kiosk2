@@ -16,7 +16,7 @@ const Clock = ({ curTime }) => {
     <React.Fragment>
       <div className="clock d-flex justify-content-center align-items-end">
         <div className="font-xxl">{curTime.substr(0, 5)}</div>
-        <div className="font-m" style={{ "margin-bottom": "25px" }}>
+        <div className="font-m" style={{ marginBbottom: "25px" }}>
           {curTime.substr(6, 2)}
         </div>
       </div>
