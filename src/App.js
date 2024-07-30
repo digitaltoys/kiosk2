@@ -25,6 +25,8 @@ export default function App() {
       <h1>
         <Clock curTime={curTime}></Clock>
       </h1>
+      {/* <Weather />
+      <Subway curTime={curTime}></Subway> */}
     </div>
   );
 }
