@@ -55,7 +55,10 @@ export default function Weather() {
           {weatherData.location.name}
         </div>
         <div className="d-flex flex-row justify-content-center">
-          <img src={weatherData.current.condition.icon} />
+          <img
+            className="weatherico"
+            src={weatherData.current.condition.icon}
+          />
           <div className="temp">
             <div className="font-m">{weatherData.current.temp_c} ℃</div>
             <div className="font-s">
