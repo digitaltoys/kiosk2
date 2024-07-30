@@ -14,10 +14,12 @@ const Clock = ({ curTime }) => {
 
   return (
     <React.Fragment>
-      <div className="clock d-flex justify-content-center align-items-end">
-        <div className="font-xxl">{curTime.substr(0, 5)}</div>
-        <div className="font-m" style={{ marginBbottom: "25px" }}>
-          {curTime.substr(6, 2)}
+      <div className="clockwapper d-flex justify-content-center align-items-center">
+        <div className="clock">{curTime.substr(0, 5)}</div>
+        <div className="secwrapper d-flex align-items-end">
+          <div className="sec font-m" style={{ marginBbottom: "25px" }}>
+            {curTime.substr(6, 2)}
+          </div>
         </div>
       </div>
     </React.Fragment>
