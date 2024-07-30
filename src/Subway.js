@@ -1,26 +1,35 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
-import { line9n, line9w } from "./line9";
+import { line9h, line9n, line9w } from "./line9";
 
 const Subway = ({ curTime }) => {
   // let index = 0;
   const [index, setIndex] = useState(0);
   // let line9 = line9w;
-  let line9 = (moment().weekday() + 1) % 7 < 2 ? line9w : line9n;
-  // console.log((moment().weekday() + 1) % 7, line9w);
+  let line9 = 0;
+  if (moment().weekday() % 7 == 0) line9 = line9h;
+  else if (moment().weekday() % 7 == 6) line9 = line9w;
+  else line9 = line9n;
+
+  // console.log((moment().weekday() + 1) % 7);
 
   const getRemainTime = (i) => {
-    let asSec = moment
-      .duration(moment(line9[i], "hh:mm") - moment())
-      .asSeconds();
+    let asSec = Math.max(
+      moment.duration(moment(line9[i], "hh:mm") - moment()).asSeconds() - 30,
+      0
+    );
     return asSec > 3500
       ? ""
       : moment(moment(line9[i], "hh:mm") - moment()).format("mm:ss");
   };
+
   const getRemainSec = (i) => {
-    return parseInt(
-      moment.duration(moment(line9[i], "hh:mm") - moment()).asSeconds(),
-      10
+    return Math.max(
+      parseInt(
+        moment.duration(moment(line9[i], "hh:mm") - moment()).asSeconds() - 30,
+        10
+      ),
+      0
     );
   };
 
@@ -52,41 +61,26 @@ const Subway = ({ curTime }) => {
         <div className="font-s">
           <b>지하철</b>
         </div>
-        <div className="font-s d-flex justify-content-end">
-          <div style={{ marginRight: "80px" }}>증미역</div>
-          <div style={{ marginRight: "80px" }}>가양역</div>
-          <div>등촌역 >></div>
+        <div className="stations font-s d-flex justify-content-end">
+          <div className="station" style={{ right: "24rem" }}>
+            공항시장
+          </div>
+          <div className="station" style={{ right: "16rem" }}>
+            신방화
+          </div>
+          <div className="station" style={{ right: "8rem" }}>
+            마곡나루
+          </div>
+          <div className="station">양천향교</div>
         </div>
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "15px",
-            overflow: "hidden"
-          }}
-        >
+        <div className="trainwrapper">
           <div
             className="train"
-            style={{
-              position: "absolute",
-              // left: `${450-getRemainSec(index)}px`,
-              right: `${getRemainSec(index)}px`,
-              width: "30px",
-              height: "15px",
-              backgroundColor: "green",
-              borderRadius: "4px"
-            }}
+            style={{ right: `${getRemainSec(index) / 20}rem` }}
           ></div>
           <div
             className="train"
-            style={{
-              position: "absolute",
-              // left: `${450-getRemainSec(index)}px`,
-              right: `${getRemainSec(index + 1)}px`,
-              width: "30px",
-              height: "15px",
-              backgroundColor: "green"
-            }}
+            style={{ right: `${getRemainSec(index + 1) / 20}rem` }}
           ></div>
         </div>
         <div className="progress" style={{ height: "3px" }}>
@@ -99,20 +93,19 @@ const Subway = ({ curTime }) => {
             aria-valuemax="100"
           ></div>
         </div>
-        <div
-          className="font-m d-flex flex-row-reverse align-items-end"
-          style={{ width: "500px" }}
-        >
+        <div className="arrivaltime font-m d-flex flex-row-reverse align-items-end">
           {index > -1 && (
-            <div style={{ marginRight: "20px" }}>{getRemainTime(index)} </div>
+            <div className="subtime" style={{ right: "0vw" }}>
+              {getRemainTime(index)}{" "}
+            </div>
           )}
           {index > -1 && index + 1 < line9.length && (
-            <div style={{ marginRight: "20px" }}>
+            <div className="subtime" style={{ right: "15vw" }}>
               {getRemainTime(index + 1)}
             </div>
           )}
           {index > -1 && index + 2 < line9.length && (
-            <div style={{ marginRight: "20px" }}>
+            <div className="subtime" style={{ right: "30vw" }}>
               {getRemainTime(index + 2)}
             </div>
           )}
