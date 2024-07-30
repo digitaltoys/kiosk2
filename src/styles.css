@@ -1,12 +1,24 @@
 .App {
+  width: 100vw;
+  height: 100vh;
   font-family: sans-serif;
   color: gray;
   background-color: black;
   /* text-align: center; */
   font-size: 10px;
   padding: 10px;
-  height: 480px;
+  /* height: 480px; */
   /* border: solid 1px red; */
+  letter-spacing: 0.05em; /* 글자 사이 간격 조정 */
+  word-spacing: 0.1em; /* 단어 사이 간격 조정 */
+  overflow: hidden;
+}
+
+.test {
+  width: 100%;
+  /* height: 10px; */
+  /* background-color: blue; */
+  border: solid 1px red;
 }
 
 .left {
@@ -14,19 +26,19 @@
 }
 
 .font-xxl {
-  font-size: 180px;
+  font-size: 8rem;
 }
 
 .font-xl {
-  font-size: 120px;
+  font-size: 6rem;
 }
 
 .font-m {
-  font-size: 30px;
+  font-size: 1rem;
 }
 
 .font-s {
-  font-size: 15px;
+  font-size: 0.9rem;
 }
 
 .bg-lg {
@@ -35,25 +47,96 @@
 /***********************************************/
 
 .weather {
-  width: 200px;
+  width: 20vw;
+  height: 30vh;
+
   /* border: solid 1px red; */
 }
 
-.temp {
-  width: 100px;
-  height: 80px;
-  margin-left: 10px;
+.weatherico {
+  width: 2.5rem;
 }
 
+.temp {
+  width: 4rem;
+  height: 3rem;
+  margin-left: 1rem;
+}
+/***********************************************/
+
 .subway {
-  width: 500px;
-  height: 140px;
-  margin-left: 50px;
-  padding: 10px;
+  width: 70vw;
+  height: 30vh;
+  /* margin-left: 1rem; */
+  padding-left: 1rem;
+  /* border: solid 1px red; */
+}
+
+.stations {
+  position: relative;
+  height: 1rem;
+}
+
+.station {
+  position: absolute;
+}
+
+.trainwrapper {
+  position: relative;
+  width: 100%;
+  height: 1rem;
+  overflow: hidden;
+  padding-top: 0.5rem;
+}
+
+.train {
+  position: absolute;
+  /* left: `${450-getRemainSec(index)}px`, */
+  /* right: `${getRemainSec(index + 1)}px`, */
+  width: 1.5rem;
+  height: 0.5rem;
+  background-color: rgb(222, 187, 30);
+  border-top-right-radius: 20px; /* 우상단 모서리 둥글게 */
+  /* border: solid 1px red; */
+}
+.arrivaltime {
+  position: relative;
+  width: 100%;
+  height: 2rem;
+}
+
+.subtime {
+  position: absolute;
+  top: 0.5rem;
+  line-height: 0.9;
+}
+
+.clockwapper {
+  margin-top: -1rem;
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  /* position: absolute; */
+  font-size: 60vh;
+  line-height: 0.7;
   /* border: solid 1px red; */
 }
 
 .clock {
-  /* width: 200px; */
-  /* border: solid 1px red; */
+  font-size: 30vw;
+  /* width: 100%;
+  height: 100%; */
+}
+
+.secwrapper {
+  position: relative;
+  height: 100%;
+  /* right: 3.5rem;
+  bottom: 1rem; */
+}
+
+.sec {
+  position: absolute;
+  height: 1rem;
+  bottom: 2rem;
 }
